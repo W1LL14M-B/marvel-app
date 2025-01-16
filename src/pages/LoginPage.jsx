@@ -9,7 +9,7 @@ const LoginPage = () => {
   };
 
   return (
-        <div id="login">
+    <div id="login">
       <h3 className="text-center text-white pt-5">Marvel Comic</h3>
       <div className="container">
         <div
@@ -26,13 +26,12 @@ const LoginPage = () => {
                   </label>
                   <br />
 
-                    <input
-                      type="text"
-                      name="username"
-                      id="username"
-                      className="form-control"
-                
-                    /> 
+                  <input
+                    type="text"
+                    name="username"
+                    id="username"
+                    className="form-control"
+                  />
                 </div>
                 <div className="form-group">
                   <label htmlFor="password" className="text-info">
@@ -48,29 +47,29 @@ const LoginPage = () => {
                 </div>
                 <div className="form-group">
                   <br />
-                  <input
-                    type="submit"
-                    name="submit"
+                
+       <input
+                   // type="submit"
+                  // name="submit"
                     className="btn btn-info btn-md"
                     value="Login"
                     onClick={onLogin}
-                  />
+                  /> 
                 </div>
-              <div id="register-link" className="text-right">
+                <div id="register-link" className="text-right">
                   <a href="#" className="text-info">
                     Register here
                   </a>
-                </div> 
+                </div>
               </form>
             </div>
           </div>
         </div>
       </div>
     </div>
-  ); 
+  );
 
-
-/*   <div className="container mt-5">
+  /*   <div className="container mt-5">
   <h1>Login</h1>
   <hr />
 
@@ -81,7 +80,6 @@ const LoginPage = () => {
     Login
   </button>
 </div> */
-
 };
 
 export default LoginPage;
