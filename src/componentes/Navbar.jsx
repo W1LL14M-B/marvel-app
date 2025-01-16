@@ -1,7 +1,17 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../hooks/AutoContex';
 
 const Navbar = () => {
+
+const navigate = useNavigate();
+const { logout} = useAuth();
+const handleLogout = () => {
+  logout()
+  navigate("/login")
+};
+
+
   return (
     <nav>
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark p-2">
@@ -39,14 +49,14 @@ const Navbar = () => {
             <span className="nav-item nav-link text-info">
               William Benavides
             </span>
-            <button className="btn btn-outline-success" type="submit">OnLogout</button>
+           {/*  <button className="btn btn-outline-success" type="submit">OnLogout</button> */}
 
-         {/*      <button
+           <button
                 className="nav-item nav-link btn"
                 onClick={handleLogout}
               >
                 Logout
-              </button>  */}
+              </button>  
           </ul>
         </div>
       </div>
