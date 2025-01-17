@@ -30,7 +30,7 @@ body {
   height: 100%;
   overflow: hidden;
   z-index: 1050;
-  display: none; /* Por defecto no visible */
+  display: none; 
 }
 
 .modal.fade {
@@ -39,9 +39,9 @@ body {
 }
 
 .modal.fade.show {
-  display: block; /* Visible cuando está activo */
+  display: block; 
   opacity: 1;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  background-color: rgba(0, 0, 0, 0.5); 
 }
 
 .modal[role="dialog"] {

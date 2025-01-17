@@ -26,7 +26,7 @@ const LoginPage = () => {
                 <h3 className="text-center text-info">Login</h3>
                 <div className="form-group">
                   <label htmlFor="username" className="text-info">
-                    Username:
+                    Nombre:
                   </label>
                   <br />
                   <input
@@ -38,7 +38,7 @@ const LoginPage = () => {
                 </div>
                 <div className="form-group">
                   <label htmlFor="password" className="text-info">
-                    Password:
+                    Identificacion:
                   </label>
                   <br />
                   <input
@@ -79,14 +79,11 @@ const LoginPage = () => {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title">Formulario de Registro</h5>
-                <button type="button" className="close" onClick={closeModal}>
-                  &times;
-                </button>
               </div>
               <div className="modal-body">
                 <form>
                   <div className="form-group">
-                    <label htmlFor="register-username">Username:</label>
+                    <label htmlFor="register-username">Nombre:</label>
                     <input
                       type="text"
                       id="register-username"
@@ -94,7 +91,7 @@ const LoginPage = () => {
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="register-password">Password:</label>
+                    <label htmlFor="register-password">Identificacion:</label>
                     <input
                       type="password"
                       id="register-password"
@@ -102,7 +99,7 @@ const LoginPage = () => {
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="register-email">Email:</label>
+                    <label htmlFor="register-email">Correo:</label>
                     <input
                       type="email"
                       id="register-email"
