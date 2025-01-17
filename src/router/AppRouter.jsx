@@ -6,6 +6,7 @@ import Search from "../pages/Search";
 import LoginPage from "../pages/LoginPage";
 import { useAuth } from "../hooks/AutoContex";
 
+
 const AppRouter = () => {
   const { isAuthenticated } = useAuth();
   const location = useLocation();

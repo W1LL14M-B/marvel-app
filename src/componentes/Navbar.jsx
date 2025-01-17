@@ -49,8 +49,6 @@ const handleLogout = () => {
             <span className="nav-item nav-link text-info">
               William Benavides
             </span>
-           {/*  <button className="btn btn-outline-success" type="submit">OnLogout</button> */}
-
            <button
                 className="nav-item nav-link btn"
                 onClick={handleLogout}

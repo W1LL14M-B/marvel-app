@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
 
   const onLogin = () => {
     navigate("/marvel");
   };
+
+  const openModal = () => setShowModal(true);
+  const closeModal = () => setShowModal(false);
 
   return (
     <div id="login">
@@ -25,7 +29,6 @@ const LoginPage = () => {
                     Username:
                   </label>
                   <br />
-
                   <input
                     type="text"
                     name="username"
@@ -39,7 +42,7 @@ const LoginPage = () => {
                   </label>
                   <br />
                   <input
-                    type="text"
+                    type="password"
                     name="password"
                     id="password"
                     className="form-control"
@@ -47,39 +50,85 @@ const LoginPage = () => {
                 </div>
                 <div className="form-group">
                   <br />
-                
-       <input
-                   // type="submit"
-                  // name="submit"
+                  <button
                     className="btn btn-info btn-md"
-                    value="Login"
                     onClick={onLogin}
-                  /> 
+                    type="button"
+                  >
+                    Login
+                  </button>
                 </div>
                 <div id="register-link" className="text-right">
-                  <a href="#" className="text-info">
-                    Register here
-                  </a>
+                  <button
+                    className="btn btn-link"
+                    type="button"
+                    onClick={openModal}
+                  >
+                    Registro
+                  </button>
                 </div>
               </form>
             </div>
           </div>
         </div>
       </div>
+
+      {showModal && (
+        <div className="modal fade show" role="dialog">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Formulario de Registro</h5>
+                <button type="button" className="close" onClick={closeModal}>
+                  &times;
+                </button>
+              </div>
+              <div className="modal-body">
+                <form>
+                  <div className="form-group">
+                    <label htmlFor="register-username">Username:</label>
+                    <input
+                      type="text"
+                      id="register-username"
+                      className="form-control"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="register-password">Password:</label>
+                    <input
+                      type="password"
+                      id="register-password"
+                      className="form-control"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="register-email">Email:</label>
+                    <input
+                      type="email"
+                      id="register-email"
+                      className="form-control"
+                    />
+                  </div>
+                  <button type="button" className="btn btn-primary btn-block">
+                    Registrar
+                  </button>
+                </form>
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={closeModal}
+                >
+                  Cerrar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
-
-  /*   <div className="container mt-5">
-  <h1>Login</h1>
-  <hr />
-
-  <button className="btn btn-primary"
-  onClick={onLogin}
-  >
-
-    Login
-  </button>
-</div> */
 };
 
 export default LoginPage;
