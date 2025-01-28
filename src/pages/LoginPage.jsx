@@ -1,51 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../hooks/AutoContex";
 import axios from "axios";
 
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  //const { register, login } = useAuth();
-  const [loginData, setLoginData] = useState({
-    username: "",
-    password: "",
-  });
   const [showModal, setShowModal] = useState(false);
-
   const [registerData, setRegisterData] = useState({
     nombre: "",
     identificacion: "",
     correo: "",
   });
+  const [loginData, setLoginData] = useState({
+    nombre: "",
+    identificacion: "",
+  });
 
-
-
-
-
- /*  const handleLogin = async () => {
-    const result = await login(credentials);
-    if (result.success) {
-      navigate("/marvel");
-    } else {
-      setErrorMessage(result.message);
-    }
-  }; */
-
-
- /*  const handleRegister = async () => {
-    const result = await register(newUser);
-    if (result.success) {
-      setShowModal(false);
-      alert("Usuario registrado exitosamente");
-    } else {
-      alert(result.message);
-    }
-  }; */
-
- const onLogin = () => {
-    navigate("/marvel");
-  };
  
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
@@ -56,7 +26,7 @@ const LoginPage = () => {
   const handleRegister = async () => {
     try {
       const response = await axios.post("http://localhost:8080/api/usuarios",registerData);
-      console.log("Respuesta del servidor:", response.data); // Validar en consola
+      console.log("Respuesta del servidor:", response.data); 
       alert("Registro exitoso");
       closeModal();
     } catch (error) {
@@ -66,38 +36,26 @@ const LoginPage = () => {
   };
 
 
+  const onLogin = async () => {
+    try {
+      const response = await axios.post("http://localhost:8080/api/usuarios/login", loginData);
+      if (response.status === 200) {
 
-/*   const handleLogin = async () => {
-    const testData = {
-      username: "andres mateus",
-      password: "101025214",
-    }; */
-
- /*    try {
-      const response = await axios.get("http://localhost:8080/api/usuarios", {
-        params: {
-          username: testData.username,
-          password: testData.password,
-        },
-      });
-
-      console.log("Respuesta del servidor:", response.data);
-
-      // Validación de credenciales con datos quemados
-      if (
-        response.data.nombre === testData.username &&
-        response.data.identificacion === testData.password
-      ) {
         alert("Inicio de sesión exitoso");
         navigate("/marvel");
       } else {
-        alert("Credenciales incorrectas");
+        alert("Credenciales incorrectas, por favor intenta nuevamente.");
       }
     } catch (error) {
-      console.error("Error al iniciar sesión:", error);
-      alert("Hubo un error al intentar iniciar sesión.");
+      console.error("Error en el inicio de sesión:", error);
+      alert("Hubo un error al iniciar sesión. Verifica tus credenciales.");
     }
-  }; */
+  };
+
+
+
+
+
 
   return (
     <div id="login">
@@ -121,10 +79,10 @@ const LoginPage = () => {
                     name="username"
                     id="username"
                     className="form-control"
-                    //value={credentials.username}
-                /*     onChange={(e) =>
-                      setCredentials({ ...credentials, username: e.target.value })
-                    } */
+                    value={loginData.nombre}
+                    onChange={(e) =>
+                      setLoginData({ ...loginData, nombre: e.target.value })
+                    }
                   />
                 </div>
                 <div className="form-group">
@@ -137,19 +95,20 @@ const LoginPage = () => {
                     name="password"
                     id="password"
                     className="form-control"
-                    //value={credentials.password}
-                 /*    onChange={(e) =>
-                      setCredentials({ ...credentials, password: e.target.value })
-                    } */
+                    value={loginData.identificacion}
+                     onChange={(e) =>
+                      setLoginData({
+                        ...loginData,
+                        identificacion: e.target.value,
+                      })
+                    } 
                   />
                 </div>
-     {/*            {errorMessage && <p className="text-danger">{errorMessage}</p>} */}
                 <div className="form-group">
                   <br />
                   <button
                     className="btn btn-info btn-md"
-                    //onClick={onLogin}
-                    //onClick={handleLogin}
+                    onClick={onLogin}
                     type="button"
                   >
                     Login
